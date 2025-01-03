@@ -34,10 +34,10 @@ const userSchema= new Schema({
     coverImage:{
     type:String// Cloudinary Url ||will do aws also
     },
-    watchHistory:{
+    watchHistory:[{
         type:Schema.Types.ObjectId,
         ref:"Video"
-    },
+    }],
     password:{
         type:String,
         required:[true,"Password is required"]
@@ -85,4 +85,5 @@ userSchema.methods.generateRefreshToken=function(){
     )
 }
 
-export  const User=mongoose.model("User",userSchema);
+ const User=mongoose.model("User",userSchema);
+ export default User
